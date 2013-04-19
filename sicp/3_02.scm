@@ -1,0 +1,13 @@
+(define (make-monitored f)
+  (let ((counts 0))
+  (lambda (mf)
+          (cond ((eq? mf 'how-many-calls?) counts)
+                ((eq? mf 'reset-count ) (set! counts 0))
+                ((integer? mf) (set! counts (+ counts 1)) (f mf))))))
+
+(define a (make-monitored sqrt))
+(a 100)
+(a 100)
+(a 100)
+(a 100)
+(a 'how-many-calls?)

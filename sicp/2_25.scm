@@ -1,0 +1,6 @@
+(define x '(1 3 (5 7) 9))
+(cdaddr x)
+(define x '((7)))
+(caar x)
+(define x '(1 (2 (3 (4 (5 (6 7)))))))
+(cadadr x)
